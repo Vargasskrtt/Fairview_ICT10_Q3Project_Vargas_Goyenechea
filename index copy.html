@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Intramural Sign Up</title>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Anton', sans-serif;
+      background-image: url('https://wallpaperaccess.com/full/385739.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+    }
+
+    /* Homepage-style header */
+    header {
+      background-color: rgba(255,255,255,0.92);
+      padding: 12px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #e5e5e5;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(6px);
+    }
+    .header-left img {
+      height: 70px;
+    }
+    .header-nav a {
+      margin: 0 14px;
+      text-decoration: none;
+      color: #222;
+      font-weight: 600;
+      font-size: 0.95em;
+      transition: all 0.3s ease;
+      padding: 6px 10px;
+      border-radius: 6px;
+    }
+    .header-nav a.home:hover { color: red; }
+    .header-nav a.signup:hover { color: green; }
+    .header-nav a.teamchecker:hover { color: goldenrod; }
+    .header-nav a.players:hover { color: blue; }
+
+    .form-container {
+      margin: 50px auto;
+      width: 50%;
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      border: 6px solid;
+      border-image: linear-gradient(to right, yellow, green, blue, red) 1;
+    }
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+      color: black;
+    }
+    select {
+      font-family: 'Anton', sans-serif;
+      padding: 8px;
+      width: 80%;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 12px 25px;
+      background: linear-gradient(to right, #FFF0B3, #FFB3B3, #B3FFB3, #B3D1FF);
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      color: black;
+      font-size: 16px;
+      transition: transform 0.2s;
+      font-family: 'Anton', sans-serif;
+    }
+    button:hover { transform: scale(1.05); }
+
+    #result {
+      margin-top: 20px;
+      font-size: 22px;
+      font-weight: bold;
+      color: #333;
+    }
+    .ok { color: #00B894; }
+    .bad { color: #D63031; }
+    .mascot {
+      max-width: 200px;
+      margin-top: 10px;
+    }
+
+    /* Homepage-style footer */
+    footer {
+      text-align: center;
+      font-size: 0.9em;
+      color: #333;
+      padding: 25px 0;
+      background-color: rgba(255,255,255,0.92);
+      margin-top: 40px;
+      position: relative;
+    }
+    footer::after {
+      content: "";
+      display: block;
+      height: 6px;
+      background: linear-gradient(90deg, red, green, yellow, blue);
+      margin-top: 10px;
+    }
+    footer p { margin: 5px 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-left">
+      <img src="https://files.orangeapps.ph/disk001/School_Files/1/school-65/school_profile/1687002413-822.png" alt="School Logo">
+    </div>
+    <nav class="header-nav">
+      <a href="index.html" class="home">Home</a>
+      <a href="index(1).html" class="signup">My Sign Up</a>
+      <a href="index copy.html" class="teamchecker">My Team Checker</a>
+      <a href="Players.html" class="players">Players</a>
+    </nav>
+  </header>
+
+  <!-- Eligibility Form -->
+  <div class="form-container">
+    <form id="eligibilityForm">
+      <label>Confirmation of Intramurals online registration:</label>
+      <select id="registration" required>
+        <option value="">Select</option>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+
+      <label>Confirmation of medical clearance:</label>
+      <select id="medical" required>
+        <option value="">Select</option>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+
+      <label>Grade level:</label>
+      <select id="grade" required>
+        <option value="">Select Grade</option>
+        <option value="7">Grade 7</option>
+        <option value="8">Grade 8</option>
+        <option value="9">Grade 9</option>
+        <option value="10">Grade 10</option>
+        <option value="11">Grade 11</option>
+      </select>
+
+      <label>Section:</label>
+      <select id="section" required>
+        <option value="">Select Section</option>
+        <option value="Emerald">Emerald</option>
+        <option value="Ruby">Ruby</option>
+        <option value="Sapphire">Sapphire</option>
+        <option value="Topaz">Topaz</option>
+        <option value="Jade">Jade</option>
+      </select>
+
+      <button type="submit">Check Eligibility</button>
+    </form>
+    <div id="result"></div>
+  </div>
+
+  <!-- Homepage-style Footer -->
+  <footer>
+    <p>2025–2026 Intramurals Project</p>
+  </footer>
+
+  <script>
+    const teams = ["Blue Bears", "Red Bulldogs", "Yellow Tigers", "Green Hornets"];
+
+    document.getElementById('eligibilityForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const registration = document.getElementById('registration').value.toLowerCase();
+      const medical = document.getElementById('medical').value.toLowerCase();
+      const gradeVal = document.getElementById('grade').value;
+      const section = document.getElementById('section').value;
+      const resultEl = document.getElementById('result');
+
+      if (registration === "yes") {
+        if (medical === "yes") {
+          if (gradeVal && Number(gradeVal) >= 7 && Number(gradeVal) <= 10) {
+            const team = teams[Math.floor(Math.random() * teams.length)];
+            let logo = "";
+
+            if (team === "Blue Bears") {
+              logo = "BlueBears.html";
+            } else if (team === "Red Bulldogs") {
+              logo = "RedBulldogs.html";
+            } else if (team === "Yellow Tigers") {
+              logo = "YellowTigers.html";
+            } else if (team === "Green Hornets") {
+              logo = "GreenHornets.html";
+            }
+
+            resultEl.className = "ok";
+            resultEl.innerHTML = `
+              🎉 Congratulations! You are eligible to join the Intramurals.<br>
+              Team: <strong>${team}</strong><br>
+              Section: <strong>${section}</strong><br><br>
+              <img src="${logo}" alt="${team} Logo" class="mascot"><br>
+              <div style="margin-top:15px; display:flex; align-items:center; justify-content:center; gap:10px;">
+                <img src="https://www.pngplay.com/wp-content/uploads/2/Smiley-Ball-PNG-Clipart-Background.png" alt="Smiley Face" style="width:80px;">
+                <span style="font-size:22px; font-weight:bold; color:gold; text-shadow:0 0 5px #FFD700;">Have Fun!</span>
+              </div>
+            `;
+          } else {
+            resultEl.className = "bad";
+            resultEl.textContent = "Sorry, only students from Grade 7 to Grade 10 are eligible.";
+          }
+        } else {
+          resultEl.className = "bad";
+          resultEl.textContent = "Sorry, you must have medical clearance to join the Intramurals.";
+        }
+      } else {
+        resultEl.className = "bad";
+        resultEl.textContent = "Sorry, you must complete the online registration to be eligible.";
+      }
+    });
+  </script>
