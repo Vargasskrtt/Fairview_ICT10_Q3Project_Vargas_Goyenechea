@@ -19,7 +19,7 @@ if registration == "yes":  # First check: did the student register?
             team = random.choice(teams)  # If all checks pass, we randomly assign them a team
             print("🎉 Congratulations! You are eligible to join the Intramurals.")  # Success message
             print(f"Team: {team}")  # Shows which team they got
-            print(f"Section: {section}")  # Shows their section
+            print(f"Section: {section}")  # this shows their section
         else:
             print("❌ Only students in Grades 7–10 are eligible.")  # Error if grade is outside 7–10
     else:
