@@ -3,7 +3,7 @@ import random  # We bring in Python’s random tool so we can assign teams rando
 # This is the list of all possible teams students can join
 teams = ["Blue Bears", "Red Bulldogs", "Yellow Tigers", "Green Hornets"]
 
-# Here we ask the student some questions and store their answers
+# This is where the student answers some questions and store their answers
 registration = input("Confirmation of Intramurals online registration (yes/no): ").strip().lower()  # Did you register online?
 medical = input("Confirmation of medical clearance (yes/no): ").strip().lower()  # Do you have medical clearance?
 grade_input = input("Grade level (7-11): ").strip()  # What grade are you in?
