@@ -6,120 +6,53 @@
   <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
   <style>
     body {
-      margin: 0;
-      font-family: 'Anton', sans-serif;
-      background-image: url('https://wallpaperaccess.com/full/385739.jpg');
-      background-size: cover;
-      background-position: center;
-      color: white;
-      text-align: center;
+      background-image: url('https://wallpaperaccess.com/full/385739.jpg'); # This sets a sporty wallpaper so the page looks exciting
+      color: white; # Makes all text white so it stands out on the dark background
+      text-align: center; # Centers everything neatly in the middle
     }
 
-    /* Homepage-style header */
     header {
-      background-color: rgba(255,255,255,0.92);
-      padding: 12px 40px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid #e5e5e5;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      backdrop-filter: blur(6px);
+      background-color: rgba(255,255,255,0.92); # A white bar at the top so the logo and links are easy to see
+      position: sticky; top: 0; # Keeps the header stuck at the top when you scroll
+      backdrop-filter: blur(6px); # Adds a blur effect behind the header for style
     }
     .header-left img {
-      height: 70px;
+      height: 70px; # This is the school logo, sized to fit nicely
     }
-    .header-nav a {
-      margin: 0 14px;
-      text-decoration: none;
-      color: #222;
-      font-weight: 600;
-      font-size: 0.95em;
-      transition: all 0.3s ease;
-      padding: 6px 10px;
-      border-radius: 6px;
-    }
-    .header-nav a.home:hover { color: red; }
-    .header-nav a.signup:hover { color: green; }
-    .header-nav a.teamchecker:hover { color: goldenrod; }
-    .header-nav a.players:hover { color: blue; }
+    .header-nav a.home:hover { color: red; } # When you hover on Home, it turns red
+    .header-nav a.signup:hover { color: green; } # Hover on Sign Up, it turns green
+    .header-nav a.teamchecker:hover { color: goldenrod; } # Hover on Team Checker, it turns gold
+    .header-nav a.players:hover { color: blue; } # Hover on Players, it turns blue
 
     .form-container {
-      margin: 50px auto;
-      width: 50%;
-      background-color: white;
-      padding: 20px;
-      border-radius: 10px;
-      border: 6px solid;
-      border-image: linear-gradient(to right, yellow, green, blue, red) 1;
+      background-color: white; # The form sits inside a clean white box
+      border-radius: 10px; # Rounded corners so it doesn’t look too sharp
+      border-image: linear-gradient(to right, yellow, green, blue, red) 1; # Rainbow border to make it colorful
     }
-    label {
-      display: block;
-      margin: 10px 0 5px;
-      font-weight: bold;
-      color: black;
-    }
-    select {
-      font-family: 'Anton', sans-serif;
-      padding: 8px;
-      width: 80%;
-      margin-bottom: 15px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
+
     button {
-      padding: 12px 25px;
-      background: linear-gradient(to right, #FFF0B3, #FFB3B3, #B3FFB3, #B3D1FF);
-      border: none;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-      color: black;
-      font-size: 16px;
-      transition: transform 0.2s;
-      font-family: 'Anton', sans-serif;
+      background: linear-gradient(to right, #FFF0B3, #FFB3B3, #B3FFB3, #B3D1FF); # The button has a rainbow gradient too
     }
-    button:hover { transform: scale(1.05); }
+    button:hover { transform: scale(1.05); } # When you hover, the button grows a little — fun effect
 
     #result {
-      margin-top: 20px;
-      font-size: 22px;
-      font-weight: bold;
-      color: #333;
+      font-size: 22px; # The result message is big so it’s easy to read
     }
-    .ok { color: #00B894; }
-    .bad { color: #D63031; }
+    .ok { color: #00B894; } # If it’s a success, the message shows in green
+    .bad { color: #D63031; } # If it’s an error, the message shows in red
     .mascot {
-      max-width: 200px;
-      margin-top: 10px;
+      max-width: 200px; # Mascot image is kept at a nice size
     }
 
-    /* Homepage-style footer */
-    footer {
-      text-align: center;
-      font-size: 0.9em;
-      color: #333;
-      padding: 25px 0;
-      background-color: rgba(255,255,255,0.92);
-      margin-top: 40px;
-      position: relative;
-    }
     footer::after {
-      content: "";
-      display: block;
-      height: 6px;
-      background: linear-gradient(90deg, red, green, yellow, blue);
-      margin-top: 10px;
+      background: linear-gradient(90deg, red, green, yellow, blue); # A rainbow line under the footer for decoration
     }
-    footer p { margin: 5px 0; }
   </style>
 </head>
 <body>
   <header>
     <div class="header-left">
-      <img src="https://files.orangeapps.ph/disk001/School_Files/1/school-65/school_profile/1687002413-822.png" alt="School Logo">
+      <img src="https://files.orangeapps.ph/...png" alt="School Logo"> # Shows the school logo at the top
     </div>
     <nav class="header-nav">
       <a href="index.html" class="home">Home</a>
@@ -129,25 +62,21 @@
     </nav>
   </header>
 
-  <!-- Eligibility Form -->
   <div class="form-container">
     <form id="eligibilityForm">
-      <label>Confirmation of Intramurals online registration:</label>
-      <select id="registration" required>
+      <select id="registration" required> # Dropdown where you pick if you registered online
         <option value="">Select</option>
         <option value="yes">Yes</option>
         <option value="no">No</option>
       </select>
 
-      <label>Confirmation of medical clearance:</label>
-      <select id="medical" required>
+      <select id="medical" required> # Dropdown for medical clearance
         <option value="">Select</option>
         <option value="yes">Yes</option>
         <option value="no">No</option>
       </select>
 
-      <label>Grade level:</label>
-      <select id="grade" required>
+      <select id="grade" required> # Dropdown for grade level
         <option value="">Select Grade</option>
         <option value="7">Grade 7</option>
         <option value="8">Grade 8</option>
@@ -156,8 +85,7 @@
         <option value="11">Grade 11</option>
       </select>
 
-      <label>Section:</label>
-      <select id="section" required>
+      <select id="section" required> # Dropdown for section
         <option value="">Select Section</option>
         <option value="Emerald">Emerald</option>
         <option value="Ruby">Ruby</option>
@@ -166,34 +94,36 @@
         <option value="Jade">Jade</option>
       </select>
 
-      <button type="submit">Check Eligibility</button>
+      <button type="submit">Check Eligibility</button> # The button you click to check if you’re allowed to join
     </form>
-    <div id="result"></div>
+    <div id="result"></div> # This empty box is where the result will show up
   </div>
 
-  <!-- Homepage-style Footer -->
   <footer>
     <p>2025–2026 Intramurals Project</p>
   </footer>
 
   <script>
-    const teams = ["Blue Bears", "Red Bulldogs", "Yellow Tigers", "Green Hornets"];
+    const teams = ["Blue Bears", "Red Bulldogs", "Yellow Tigers", "Green Hornets"]; # A list of all possible teams
 
     document.getElementById('eligibilityForm').addEventListener('submit', function (e) {
-      e.preventDefault();
+      e.preventDefault(); # Stops the page from refreshing when you hit submit
 
+      # Grab all the answers from the dropdowns
       const registration = document.getElementById('registration').value.toLowerCase();
       const medical = document.getElementById('medical').value.toLowerCase();
       const gradeVal = document.getElementById('grade').value;
       const section = document.getElementById('section').value;
       const resultEl = document.getElementById('result');
 
-      if (registration === "yes") {
-        if (medical === "yes") {
-          if (gradeVal && Number(gradeVal) >= 7 && Number(gradeVal) <= 10) {
-            const team = teams[Math.floor(Math.random() * teams.length)];
+      # Now we check the answers step by step
+      if (registration === "yes") { # First check: did you register?
+        if (medical === "yes") { # Second check: do you have medical clearance?
+          if (gradeVal && Number(gradeVal) >= 7 && Number(gradeVal) <= 10) { # Third check: are you in Grade 7–10?
+            const team = teams[Math.floor(Math.random() * teams.length)]; # If yes, we randomly assign you a team
             let logo = "";
 
+            # Depending on the team, we show the right mascot
             if (team === "Blue Bears") {
               logo = "BlueBears.html";
             } else if (team === "Red Bulldogs") {
@@ -204,28 +134,28 @@
               logo = "GreenHornets.html";
             }
 
-            resultEl.className = "ok";
+            resultEl.className = "ok"; # Marks the result as success (green)
             resultEl.innerHTML = `
-              🎉 Congratulations! You are eligible to join the Intramurals.<br>
+              🎉 Congratulations! You are eligible...<br>
               Team: <strong>${team}</strong><br>
               Section: <strong>${section}</strong><br><br>
-              <img src="${logo}" alt="${team} Logo" class="mascot"><br>
-              <div style="margin-top:15px; display:flex; align-items:center; justify-content:center; gap:10px;">
-                <img src="https://www.pngplay.com/wp-content/uploads/2/Smiley-Ball-PNG-Clipart-Background.png" alt="Smiley Face" style="width:80px;">
-                <span style="font-size:22px; font-weight:bold; color:gold; text-shadow:0 0 5px #FFD700;">Have Fun!</span>
-              </div>
+              <img src="${logo}" alt="${team} Logo" class="mascot"><br> # Shows the mascot image
+              <img src="https://www.pngplay.com/...Smiley-Ball.png" style="width:80px;"> # This adds a smiley face for fun
+              <span style="color:gold;">Have Fun!</span> # Shows a gold “Have Fun!” message
             `;
           } else {
-            resultEl.className = "bad";
-            resultEl.textContent = "Sorry, only students from Grade 7 to Grade 10 are eligible.";
+            resultEl.className = "bad"; # Marks the result as error (red)
+            resultEl.textContent = "Sorry, only students from Grade 7 to Grade 10 are eligible."; # Shows error message
           }
         } else {
-          resultEl.className = "bad";
+          resultEl.className = "bad"; # Error if no medical clearance
           resultEl.textContent = "Sorry, you must have medical clearance to join the Intramurals.";
         }
       } else {
-        resultEl.className = "bad";
+        resultEl.className = "bad"; # Error if not registered
         resultEl.textContent = "Sorry, you must complete the online registration to be eligible.";
       }
     });
   </script>
+</body>
+</html>
