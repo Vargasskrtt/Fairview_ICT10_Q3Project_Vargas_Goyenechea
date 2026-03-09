@@ -1,4 +1,4 @@
-# Lets the program use Flask so it can show web pages
+# it lets the program use Flask so it can show web pages
 from flask import Flask, render_template
 
 # Creates the app so it can run like a website
